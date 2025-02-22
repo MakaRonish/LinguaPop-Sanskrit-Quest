@@ -116,7 +116,7 @@ class Raven {
 
         this.image = new Image();
         this.imageName = pictures[Math.floor(Math.random() * pictures.length)];
-        this.image.src = "images/" + this.imageName;
+        this.image.src = "/static/game/images/" + this.imageName;
 
         this.frame = 0;
         this.maxFrame = 4;
@@ -153,7 +153,6 @@ class Raven {
     }
 
     draw() {
-
         collisionCtx.fillStyle = this.color;
         collisionCtx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(this.image, 0, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
@@ -168,11 +167,11 @@ class Explosion {
         this.x = x;
         this.y = y;
         this.image = new Image();
-        this.image.src = 'images/boom.png';
+        this.image.src = '/static/game/images/boom.png';
         this.frame = 0;
         this.timer = 0;
         this.sound = new Audio();
-        this.sound.src = 'audio/boom.mp3';
+        this.sound.src = '/static/game/audio/boom.mp3';
         this.timeSinceLastFrame = 0;
         this.frameInterval = 200;
         this.markedForDeletion = false;
@@ -216,7 +215,7 @@ window.addEventListener("click", function (e) {
 
             // Show Meaning Image
             setTimeout(() => {
-                let imagePath = meaningImages[object.imageName];
+                let imagePath = '/static/game/' + meaningImages[object.imageName];
                 if (imagePath) {
                     displayedImage = new Image();
                     displayedImage.src = imagePath;
@@ -251,7 +250,7 @@ let musicDisplay = document.getElementById('musicvolume')
 musicDisplay.innerHTML = music.value
 
 // Create an audio object for the background music
-const backgroundMusic = new Audio('game/static/game/audio/background.mp3');
+const backgroundMusic = new Audio('/static/game/audio/background.mp3');
 
 // Set the audio to loop continuously
 backgroundMusic.loop = true;
@@ -339,6 +338,3 @@ function closepopup() {
     animate(lastTime);
 
 }
-
-
-
