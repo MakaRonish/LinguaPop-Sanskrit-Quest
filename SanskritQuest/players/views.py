@@ -33,6 +33,7 @@ def loginPage(request):
 
 def logoff(request):
     logout(request)
+    return redirect("loginpage")
 
 
 # Create your views here.
